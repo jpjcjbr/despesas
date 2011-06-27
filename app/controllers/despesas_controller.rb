@@ -1,4 +1,5 @@
 class DespesasController < ApplicationController
+  before_filter :authenticate_user!
   # GET /despesas
   # GET /despesas.xml
   def index
