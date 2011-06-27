@@ -6,6 +6,8 @@ gem 'devise'
 gem 'sqlite3'
 gem 'jquery-rails', '>= 0.2.6'
 
+gem 'rake', '0.8.7'
+
 group :development do
   gem 'rspec-rails', '2.6.1'  
 end
