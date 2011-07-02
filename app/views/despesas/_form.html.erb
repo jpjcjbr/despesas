@@ -1,33 +1,31 @@
 <%= form_for(@despesa) do |f| %>
-  <% if @despesa.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@despesa.errors.count, "error") %> prohibited this despesa from being saved:</h2>
-
-      <ul>
-      <% @despesa.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+	<% if @despesa.errors.any? %>  
+	  <div class="error">
+	    <p class="large">Erro ao cadastrar despesa:</p>
+			<% @despesa.errors.full_messages.each do |msg| %>
+				<p><%= msg %></p>
+			<% end %>
+	  </div>
+	<% end %>
 
   <div class="field">
-    <%= f.label :descricao %><br />
-    <%= f.text_field :descricao %>
+    <div><%= f.label :data %></div>
+    <div><%= f.date_select :data %></div>
   </div>
   <div class="field">
-    <%= f.label :local %><br />
-    <%= f.text_field :local %>
+    <div><%= f.label :descricao %></div>
+    <div><%= f.text_field :descricao %></div>
   </div>
   <div class="field">
-    <%= f.label :valor %><br />
-    <%= f.text_field :valor %>
+    <div><%= f.label :local %></div>
+    <div><%= f.text_field :local %></div>
   </div>
   <div class="field">
-    <%= f.label :data %><br />
-    <%= f.date_select :data %>
+    <div><%= f.label :valor %></div>
+    <div><%= f.text_field :valor %></div>
   </div>
   <div class="actions">
-    <%= f.submit %>
+		<%= content_tag(:button, image_tag('/images/icons/tick.png') + "Salvar", {:class => "positive", :type => 'submit'}) %>
+		<%= link_to(image_tag('/images/icons/cross.png') + "Voltar", despesas_path, {:class => "button negative"}) %>
   </div>
 <% end %>

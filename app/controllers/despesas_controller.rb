@@ -45,7 +45,7 @@ class DespesasController < ApplicationController
 
     respond_to do |format|
       if @despesa.save
-        format.html { redirect_to(@despesa, :notice => 'Despesa was successfully created.') }
+        format.html { redirect_to(despesas_url, :notice => 'Despesa was successfully created.') }
         format.xml  { render :xml => @despesa, :status => :created, :location => @despesa }
       else
         format.html { render :action => "new" }
@@ -61,7 +61,7 @@ class DespesasController < ApplicationController
 
     respond_to do |format|
       if @despesa.update_attributes(params[:despesa])
-        format.html { redirect_to(@despesa, :notice => 'Despesa was successfully updated.') }
+        format.html { redirect_to(despesas_url, :notice => 'Despesa was successfully updated.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }

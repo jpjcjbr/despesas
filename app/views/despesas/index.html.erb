@@ -1,14 +1,14 @@
-<h1>Listing despesas</h1>
+<h1>Despesas</h1>
 
-<table>
+<% unless @despesas.empty? %>
+<table class="tabela">
   <tr>
     <th>Descricao</th>
     <th>Local</th>
     <th>Valor</th>
     <th>Data</th>
-    <th></th>
-    <th></th>
-    <th></th>
+    <th class="icones_tabela"></th>
+    <th class="icones_tabela"></th>
   </tr>
 
 <% @despesas.each do |despesa| %>
@@ -17,13 +17,13 @@
     <td><%= despesa.local %></td>
     <td><%= despesa.valor %></td>
     <td><%= despesa.data %></td>
-    <td><%= link_to 'Show', despesa %></td>
-    <td><%= link_to 'Edit', edit_despesa_path(despesa) %></td>
-    <td><%= link_to 'Destroy', despesa, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
+		<td><%= link_to image_tag('/images/botao/editar.png', :border => 0), edit_despesa_path(despesa) %></td>
+		<td><%= link_to image_tag('/images/botao/trash.gif', :border => 0), despesa, :confirm => 'Deseja remover esta despesa?', :method => :delete %></td>  
+	</tr>
 <% end %>
 </table>
+<% else %>
+	<p>Nenhuma despesa cadastrada.</p>
+<% end %>
 
-<br />
-
-<%= link_to 'New Despesa', new_despesa_path %>
+<%= link_to 'Nova Despesa', new_despesa_path, {:class => "button"} %>
